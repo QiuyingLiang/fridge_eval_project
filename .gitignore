@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+
+# Mac
+.DS_Store
+
+# YOLO outputs
+runs/detect/predict/
+
+# Dataset
+data/images/
+data/labels/
+*.xlsx
+~$*.xlsx
+
+# Training dataset
+dataset/
