@@ -19,6 +19,7 @@ This project focuses on detecting and classifying beverage products inside a fri
 ### 1️ Manual Annotation
 - Annotate ~100 images using `labelImg`
 - Labels stored in `data/labels`
+labelImg clone from: https://github.com/tzutalin/labelImg.git
 
 ```bash
 cd /Users/liangqiuying/Desktop/fridge_eval_project/labelImg
