@@ -20,6 +20,10 @@ This project focuses on detecting and classifying beverage products inside a fri
 - Annotate ~100 images using `labelImg`
 - Labels stored in `data/labels`
 
+```bash
+cd /Users/liangqiuying/Desktop/fridge_eval_project/labelImg
+python3 labelImg.py ../data/images ../data/labels/classes.txt ../data/labels
+```
 ---
 
 ### 2️ Create Train/Val Split
