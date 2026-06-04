@@ -46,6 +46,10 @@ yolo detect train data=dataset.yaml model=yolov8n.pt epochs=80 imgsz=768
 - misclassification are expected due to limited training data
 - performance will improve after iterative retraining
 
+### Performance:
+![](img_0118.jpg)
+![](img_0221.jpg)
+![](img_0498.jpg)
 ### 4 Auto label remaining 400 images
 ```bash
 yolo detect predict model=runs/detect/train6/weights/best.pt source=data/images conf=0.01 save_txt=True save=True
