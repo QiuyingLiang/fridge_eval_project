@@ -1,0 +1,6 @@
+path: /Users/liangqiuying/Desktop/fridge_eval_project/dataset
+train: images/train
+val: images/val
+
+nc: 3
+names: ['maidong', 'other', 'maidong_fridge']

@@ -18,8 +18,8 @@ val_lbl = out_base / "labels/val"
 for d in [train_img, val_img, train_lbl, val_lbl]:
     d.mkdir(parents=True, exist_ok=True)
 
-# 找所有有标注的文件（关键）
-label_files = list(label_dir.glob("*.txt"))
+# 找所有有标注的文件 - 排除 classes.txt
+label_files = [f for f in label_dir.glob("*.txt") if f.name != "classes.txt"]
 names = [f.stem for f in label_files]
 
 print(f"✅ 找到有标注图片: {len(names)}张")
@@ -27,10 +27,13 @@ print(f"✅ 找到有标注图片: {len(names)}张")
 # 打乱
 random.shuffle(names)
 
-# 划分
+# 划分 80% train, 20% val
 split = int(len(names) * 0.8)
 train_names = names[:split]
 val_names = names[split:]
+
+print(f" 训练集: {len(train_names)}张")
+print(f" 验证集: {len(val_names)}张")
 
 def copy_data(name_list, img_out, lbl_out):
     for name in name_list:
@@ -42,7 +45,8 @@ def copy_data(name_list, img_out, lbl_out):
                 break
         
         lbl_path = label_dir / f"{name}.txt"
-        shutil.copy(lbl_path, lbl_out / lbl_path.name)
+        if lbl_path.exists():
+            shutil.copy(lbl_path, lbl_out / lbl_path.name)
 
 # 执行复制
 copy_data(train_names, train_img, train_lbl)
