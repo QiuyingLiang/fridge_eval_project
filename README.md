@@ -55,6 +55,7 @@ yolo detect train data=dataset.yaml model=yolov8n.pt epochs=80 imgsz=768
 ![](img_0118.jpg)
 ![](img_0221.jpg)
 ![](img_0498.jpg)
+
 ### 4 Auto label remaining 400 images
 ```bash
 yolo detect predict model=runs/detect/train6/weights/best.pt source=data/images conf=0.01 save_txt=True save=True
@@ -64,7 +65,35 @@ yolo detect predict model=runs/detect/train6/weights/best.pt source=data/images 
 - Accuracy is not critical at this stage
 
 ### 5 Manual correction
-- correct the auto-labelled images
+- correct the 100 auto-labelled images --> 200 correctly labelled images
 
+### 6 fine-tuning with initial model
+```bash
+data=dataset_continue.yaml \
+model=runs/detect/train-6/weights/best.pt \
+epochs=100 \
+imgsz=768 \
+project=runs_continue
+```
+- the bootstrap model was fine-tuned using 200 refined samples (100 manually labeled + 100 auto-labeled with manual correction) to enhance detection accuracy for maidong bottles and fridge regions.
+- Model: runs/detect/train-6/weights/best.pt (YOLOv8n architecture)
+- Training epochs: 100
+- Input size: 768
+- Output checkpoint: runs_continue/yolo_continue/train/weights/best.pt
 
-### 6 retrain model with yolov10
+![](runs_continue/train/confusion_matrix_normalized.png)
+
+### Observations:
+- The fine-tuned model demonstrates significant improvement in distinguishing maidong bottles from other objects, achieving 93% accuracy on the maidong class.
+- Classification between maidong and other has been greatly enhanced compared to the initial bootstrap model, with misclassification rates substantially reduced.
+- The "other" category remains the primary challenge (63% accuracy), which is expected given the limited and diverse samples of non-maidong brands in the training set.
+- maidong_fridge detection achieved excellent performance (95% accuracy), indicating robust generalization for fridge region identification.
+- Overall model performance (mAP@0.5: 0.853) 
+- Future migration to YOLOv10 is expected to further improve performance, particularly for challenging categories like non-maidong brands.
+
+### Performance:
+![](fine-tuning_img_0240.jpg)
+![](fine-tuning_img_0339.jpg)
+![](fine-tuning_img_0484.jpg)
+
+### 7 retrain model with yolov10
