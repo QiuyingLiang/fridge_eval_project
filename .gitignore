@@ -7,6 +7,7 @@ __pycache__/
 
 # YOLO outputs
 runs/detect/predict/
+runs_continue/predict/
 
 # Dataset
 data/images/
