@@ -41,9 +41,9 @@ yolo detect train data=dataset.yaml model=yolov8n.pt epochs=80 imgsz=768
 - Model: YOLOv8n
 - Training epochs: ~80
 - Input size:768
-- Output checkpoint: runs/detect/train-6/weights/best.pt
+- Output checkpoint: models/experiments/yolo_v8/initial/train-6/weights/best.pt
 
-![](runs/detect/train-6/confusion_matrix_normalized.png)
+![](models/experiments/yolo_v8/initial/train-6/confusion_matrix_normalized.png)
 
 ### Observations:
 - The initial model is able to distinguish general object regions
@@ -52,9 +52,9 @@ yolo detect train data=dataset.yaml model=yolov8n.pt epochs=80 imgsz=768
 - performance will improve after iterative retraining
 
 ### Performance:
-![](img_0118.jpg)
-![](img_0221.jpg)
-![](img_0498.jpg)
+![](performance_exp/img_0118.jpg)
+![](performance_exp/img_0221.jpg)
+![](performance_exp/img_0498.jpg)
 
 ### 4 Auto label remaining 400 images
 ```bash
@@ -79,9 +79,9 @@ project=runs_continue
 - Model: runs/detect/train-6/weights/best.pt (YOLOv8n architecture)
 - Training epochs: 100
 - Input size: 768
-- Output checkpoint: runs_continue/yolo_continue/train/weights/best.pt
+- Output checkpoint: models/experiments/yolo_v8/fine_tuning/train/weights/best.pt
 
-![](runs_continue/train/confusion_matrix_normalized.png)
+![](models/experiments/yolo_v8/fine_tuning/train/confusion_matrix_normalized.png)
 
 ### Observations:
 - The fine-tuned model demonstrates significant improvement in distinguishing maidong bottles from other objects, achieving 93% accuracy on the maidong class.
@@ -92,8 +92,25 @@ project=runs_continue
 - Future migration to YOLOv10 is expected to further improve performance, particularly for challenging categories like non-maidong brands.
 
 ### Performance:
-![](fine-tuning_img_0240.jpg)
-![](fine-tuning_img_0339.jpg)
-![](fine-tuning_img_0484.jpg)
+![](performance_exp/fine-tuning_img_0240.jpg)
+![](performance_exp/fine-tuning_img_0339.jpg)
+![](performance_exp/fine-tuning_img_0484.jpg)
 
 ### 7 retrain model with yolov10
+
+
+### 8 application
+## Description
+Production AI pipeline for detecting competitor presence and prioritizing manual review.
+
+## Output columns
+- review_flag
+- review_score
+- num_high_other
+- num_low_other
+- num_low_maidong_layers
+- m_layer
+- other_layer
+
+## Run
+python tools/run_eval.py

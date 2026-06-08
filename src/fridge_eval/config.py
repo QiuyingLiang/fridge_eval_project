@@ -1,4 +1,4 @@
-MODEL_PATH = 'model/best.pt'
+MODEL_PATH = 'models/best/best.pt'
 CACHE_DIR = 'cache'
 OUTPUT_FILE = 'output/output.xlsx'
 MAX_WORKERS = 20
