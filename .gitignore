@@ -6,8 +6,9 @@ __pycache__/
 .DS_Store
 
 # YOLO outputs
-runs/detect/predict/
-runs_continue/predict/
+models/experiments/yolo_v8/initial/predict/
+models/experiments/yolo_v8/fine_tuning/predict/
+models/experiments/yolo_v10/predict/
 
 # Dataset
 data/images/
@@ -19,3 +20,5 @@ data/to_label.csv
 # Training dataset
 dataset/
 
+#labelImg
+labelImg/
