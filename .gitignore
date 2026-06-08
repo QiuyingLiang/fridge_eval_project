@@ -22,3 +22,6 @@ dataset/
 
 #labelImg
 labelImg/
+
+#cache
+cache/
