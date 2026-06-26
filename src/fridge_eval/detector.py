@@ -42,7 +42,7 @@ class Detector:
             cx, cy = (bx1 + bx2) / 2, (by1 + by2) / 2
 
             if x1 <= cx <= x2 and y1 <= cy <= y2:
-                items.append((name, conf))
+                items.append((name, conf, cy, by2-by1))
 
         if not items:
             return None
