@@ -10,13 +10,14 @@ models/experiments/yolo_v8/initial/predict/
 models/experiments/yolo_v8/fine_tuning/predict/
 models/experiments/yolo_v10/predict/
 
+
 # Dataset
 data/images/
 data/labels/
 *.xlsx
 ~$*.xlsx
 data/to_label.csv
-juice_dataset/
+juice_dataset/data/
 （6.24)5月冰柜竞赛明细清单-正激励-复核版/
 
 # Training dataset
