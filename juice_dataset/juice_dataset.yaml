@@ -1,0 +1,7 @@
+path: /Users/liangqiuying/Desktop/fridge_eval_project/juice_dataset/data
+
+train: images/train
+val: images/val
+
+nc: 1
+names: ['juice']
