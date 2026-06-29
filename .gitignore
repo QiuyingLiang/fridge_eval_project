@@ -9,7 +9,8 @@ __pycache__/
 models/experiments/yolo_v8/initial/predict/
 models/experiments/yolo_v8/fine_tuning/predict/
 models/experiments/yolo_v10/predict/
-
+juice_dataset/runs/predict/
+juice_dataset/runs_fine_tuning/predict/
 
 # Dataset
 data/images/
