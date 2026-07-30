@@ -1,8 +1,11 @@
 MODEL_PATH = 'models/best/best.pt'
 CACHE_DIR = 'cache'
-OUTPUT_FILE = 'output/output_MayNoJuiceFridge.xlsx'
+OUTPUT_FILE = 'output/output_test.xlsx'
 MAX_WORKERS = 20
 BATCH_SIZE = 16
 CLASS_NAMES = ['maidong','other','maidong_fridge']
 OTHER_THRESH = 0.5
 MAIDONG_MIN_COUNT = 6
+JUICE_MODEL_PATH = 'models/best/juice_best.pt'
+JUICE_CONF_THRESH = 0.25
+IOU_THRESH = 0.25
